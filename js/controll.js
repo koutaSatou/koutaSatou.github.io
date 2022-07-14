@@ -9,7 +9,6 @@ let renderingPreviewPage = "";
 const INSERT_NUMBER =5;
 
 
-//ƒy[ƒW“àbuttonƒ^ƒO‚Ìó‘Ô‚ğŠÄ‹
 document.getElementById("preview").onclick = function () {
 
     renderingPreviewPage = "";
@@ -134,16 +133,16 @@ document.getElementById("preview").onclick = function () {
 document.getElementById("output").onclick = function () {
     console.log("push output");
     $.ajax({
-        type: "GET", //@POST‚Å‚à‰Â
-        url: "php/getmail.php", //@‘—‚èæ
+        type: "GET", 
+        url: "php/getmail.php", 
         async: false
     })
         .then(
-            function (param) {@ //@param‚Éˆ—Œã‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚é
-                //console.log(param); //@‹A‚Á‚Ä‚«‚½‚çÀs‚·‚éˆ—
+            function (param) {
+                //console.log(param); 
             },
             function (XMLHttpRequest, textStatus, errorThrown) {
-                console.log(errorThrown); //@ƒGƒ‰[•\¦
+                console.log(errorThrown); //ï¿½@ï¿½Gï¿½ï¿½ï¿½[ï¿½\ï¿½ï¿½
             });
 };
 
@@ -203,7 +202,7 @@ document.getElementById("selectparts_footer").onclick = function () {
 
 
 
-//Insert_button@‰Ÿ‰º‚Ìˆ—
+//Insert_buttonï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 function pushInsertbutton(pushedID) {
 
     if (stateSlect != "none") {
@@ -222,7 +221,7 @@ function pushInsertbutton(pushedID) {
 
 }
 
-//Delete_button ‰Ÿ‰º‚Ìˆ—
+//Delete_button ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 function pushDeletebutton(pushedID) {
 
     let p = document.getElementById("parts_" + pushedID.substr(pushedID.length - 1, 1));
@@ -245,10 +244,10 @@ function pushDeletebutton(pushedID) {
 }
 
 
-//sidebar Parts_button@‰Ÿ‰º‚Ìˆ—
+//sidebar Parts_buttonï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìï¿½ï¿½ï¿½
 function pushInsertparts(pushedID) {
 
-    //‘I‘ğ‚³‚ê‚½ƒ[ƒ‹ƒp[ƒc‚É‚æ‚Á‚ÄŠY“–‚·‚éHTMLƒf[ƒ^‚ğ‘}“ü
+    //ï¿½Iï¿½ï¿½ï¿½ï¿½ï¿½ê‚½ï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½pï¿½[ï¿½cï¿½É‚ï¿½ï¿½ï¿½ÄŠYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½HTMLï¿½fï¿½[ï¿½^ï¿½ï¿½}ï¿½ï¿½
     if (pushedID == "selectparts_layoutA") {
         $(function () {
             $("#parts_" + stateSlect.substr(stateSlect.length - 1, 1)).load("parts/layout_typeA.html");
@@ -288,12 +287,11 @@ function pushInsertparts(pushedID) {
     console.log(stateInsertparts);
 
 
-    //‘I‘ğó‘Ô‰Šú‰»
     let p = document.getElementById(stateSlect);
     p.className = "btn btn-secondary";
     let q = document.getElementById("deleteButton_" + stateSlect.substr(stateSlect.length - 1, 1));
     q.className = "btn btn-dark"
-    q.innerText = "~"
+    q.innerText = "ï¿½~"
     //stateSlect = 0;
 
     document.getElementById("sidebar").style.display = "block";
@@ -301,38 +299,38 @@ function pushInsertparts(pushedID) {
 }
 
 
-//previewƒy[ƒW‚ğƒŒƒ“ƒ_ƒŠƒ“ƒO
+//preview
 function renderPreviewPage() {
 
     $.ajax({
-        type: "GET", //@POST‚Å‚à‰Â
-        url: "php/delete.php", //@‘—‚èæ
+        type: "GET", 
+        url: "php/delete.php", 
         async: false
     })
         .then(
-            function (param) {@ //@param‚Éˆ—Œã‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚é
-                //console.log(param); //@‹A‚Á‚Ä‚«‚½‚çÀs‚·‚éˆ—
+            function (param) {
+                //console.log(param); 
             },
             function (XMLHttpRequest, textStatus, errorThrown) {
-                console.log(errorThrown); //@ƒGƒ‰[•\¦
+                console.log(errorThrown); 
             });
 
     renderPreviewPageHeader();
 
     $.ajax({
-        type: "POST", //@POST‚Å‚à‰Â
-        url: "php/preview.php", //@‘—‚èæ
-        data: { 'ƒf[ƒ^': renderingPreviewPage }, //@“n‚µ‚½‚¢ƒf[ƒ^
-        dataType: "text", //@ƒf[ƒ^Œ`®‚ğw’è
-        scriptCharset: 'utf-8', //@•¶šƒR[ƒh‚ğw’è
+        type: "POST", 
+        url: "php/preview.php", 
+        data: { 'renderingPreviewPage': renderingPreviewPage }, 
+        dataType: "text", 
+        scriptCharset: 'utf-8', 
         async: false
     })
         .then(
-            function (param) {@ //@param‚Éˆ—Œã‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚é
-                //console.log(param); //@‹A‚Á‚Ä‚«‚½‚çÀs‚·‚éˆ—
+            function (param) {
+                //console.log(param); 
             },
             function (XMLHttpRequest, textStatus, errorThrown) {
-                console.log(errorThrown); //@ƒGƒ‰[•\¦
+                console.log(errorThrown); 
             });
     renderingPreviewPage = "";
 
@@ -345,19 +343,19 @@ function renderPreviewPage() {
         if (inputData[i][0] == "selectparts_layoutD") { renderPreviewLayoutD(i); }
 
         $.ajax({
-            type: "POST", //@POST‚Å‚à‰Â
-            url: "php/preview.php", //@‘—‚èæ
-            data: { 'ƒf[ƒ^': renderingPreviewPage }, //@“n‚µ‚½‚¢ƒf[ƒ^
-            dataType: "text", //@ƒf[ƒ^Œ`®‚ğw’è
-            scriptCharset: 'utf-8', //@•¶šƒR[ƒh‚ğw’è
+            type: "POST", 
+            url: "php/preview.php", 
+            data: { 'renderingPreviewPage': renderingPreviewPage }, 
+            dataType: "text", 
+            scriptCharset: 'utf-8', 
             async: false
         })
             .then(
-                function (param) {@ //@param‚Éˆ—Œã‚Ìƒf[ƒ^‚ª“ü‚Á‚Ä‚é
-                    //console.log(param); //@‹A‚Á‚Ä‚«‚½‚çÀs‚·‚éˆ—
+                function (param) {
+                    //console.log(param); 
                 },
                 function (XMLHttpRequest, textStatus, errorThrown) {
-                    console.log(errorThrown,i); //@ƒGƒ‰[•\¦
+                    console.log(errorThrown,i); 
                 });
         renderingPreviewPage = "";
     }
@@ -401,23 +399,13 @@ function renderPreviewPageHeader() {
         } 
         </style> 
          
-        <!-- Google Tag Manager --> 
-        <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-KM7ST7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript><script type="text/javascript"> 
-        (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({"gtm.start": 
-        new Date().getTime(),event:"gtm.js"});var f=d.getElementsByTagName(s)[0], 
-        j=d.createElement(s),dl=l!="dataLayer"?"&l="l:"";j.async=true;j.src= 
-        "//www.googletagmanager.com/gtm.js?id="idl;f.parentNode.insertBefore(j,f); 
-        })(window,document,"script","dataLayer","GTM-KM7ST7"); 
-        </script><!-- End Google Tag Manager --> 
-        <body style="margin: 0; padding: 0; line-height: 150%; font-size: 16px; font-family: "MS PGothic", sans-serif;"> 
-         
         <table width="100%" border="0" cellpadding="0" cellspacing="0"> 
         <tr> 
         <td align="center"> 
         <table width="630" border="0" cellpadding="0" cellspacing="0"> 
         <tr> 
         <td align="right" style="font-size:10px; padding: 3px 0;"> 
-        <a href="https://fujingaho.ringbell.co.jp/mailmag/mm-20200513.html?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b01">‰æ‘œAHTMLŒ`®‚ª•\¦‚³‚ê‚È‚¢•û‚Í‚±‚¿‚ç</a> 
+        <a href="https://fujingaho.ringbell.co.jp/mailmag/mm-20200513.html?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b01"></a> 
         </td> 
         </tr> 
         </table>`;
@@ -429,16 +417,16 @@ function renderPreviewHeader() {
     console.log("Header");
 
     let str =
-        `<!-- ¥ƒwƒbƒ_[ƒGƒŠƒA@«‚±‚±‚©‚ç --> 
-        <!-- ¥header ƒƒS --> 
+        `<!-- ï¿½ï¿½ï¿½wï¿½bï¿½_ï¿½[ï¿½Gï¿½ï¿½ï¿½Aï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ --> 
+        <!-- ï¿½ï¿½header ï¿½ï¿½ï¿½S --> 
         <table width="630" border="0" cellpadding="0" cellspacing="0"> 
         <tr> 
         <td align="center" bgcolor="#FFFFFF" style="padding: 15px 0;"> 
-        <a href="https://fujingaho.ringbell.co.jp/?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b02"><img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/header_sitetitle02.gif" width="230" alt="•wl‰æ•ñ‚Ì‚¨æ‚èŠñ‚¹" /></a> 
+        <a href="https://fujingaho.ringbell.co.jp/?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b02"><img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/header_sitetitle02.gif" width="230" alt="ï¿½wï¿½lï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½" /></a> 
         </td> 
         </tr> 
         </table> 
-        <!-- /£header ƒƒS -->`;
+        <!-- /ï¿½ï¿½header ï¿½ï¿½ï¿½S -->`;
     renderingPreviewPage = str;
 }
 
@@ -446,8 +434,8 @@ function renderPreviewFooter() {
     console.log("Footer");
 
     let str =
-        `<!-- ¥ƒtƒbƒ^[ƒGƒŠƒA@«‚±‚±‚©‚ç -->
-        <!-- ¥footer -->
+        `
+        <!-- footer -->
         <table width="630" border="0" cellpadding="0" cellspacing="0">
           <tr>
             <td colspan="3">
@@ -467,17 +455,7 @@ function renderPreviewFooter() {
           <tr>
             <td><img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/spacer.gif" width="20" height="1" alt=""></td>
             <td align="left" style="padding-top: 10px;">
-              <p>¦‚±‚Ìƒ[ƒ‹‚ÍA‰ß‹‚É•wl‰æ•ñ‚Ì‚¨æ‚èŠñ‚¹‚É‚Ä‚²w“üA‚à‚µ‚­‚Í•¾Ğ‚©‚ç‚ÌˆÄ“à“™‚Ì‘—•t‚É‹–‰Â‚ğ‚¢‚½‚¾‚¢‚½•û‚É‚¨‘—‚è‚µ‚Ä‚¢‚Ü‚·B<br>
-              –{ƒ[ƒ‹‚Ì”zM‚ğŠó–]‚³‚ê‚È‚¢•û‚ÍA‚¨è”‚Å‚·‚ªu<a href="https://fujingaho.ringbell.co.jp/shop/mail/mag.aspx/?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b37">ƒ[ƒ‹ƒ}ƒKƒWƒ“‚Ì‚²“o˜^E‰ğ–ñ</a>vƒy[ƒW‚ÉƒAƒNƒZƒX‚¢‚½‚¾‚«Agƒ[ƒ‹ƒ}ƒKƒWƒ“‰ğœh‚æ‚è”zM’â~è‘±‚«‚ğs‚Á‚Ä‚­‚¾‚³‚¢B<br>
-              ƒ[ƒ‹ƒAƒhƒŒƒX‚Ì•ÏX‚ÍAw<a href="https://fujingaho.ringbell.co.jp/shop/customer/menu.aspx/?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b38">ƒƒOƒCƒ“</a>xƒy[ƒW‚æ‚èƒƒOƒCƒ“‚¢‚½‚¾‚«Aƒ[ƒ‹ƒAƒhƒŒƒX‚ğ•ÏX‚µ‚Ä‚­‚¾‚³‚¢B</p>
-              <p>Ÿ‹LÚ‚³‚ê‚½“à—e‚Í•ÏX‚É‚È‚éê‡‚ª‚²‚´‚¢‚Ü‚·‚Ì‚ÅA‚ ‚ç‚©‚¶‚ß‚²—¹³‚­‚¾‚³‚¢B<br>
-              Ÿ–{ƒ[ƒ‹‚Í‘—Mê—p‚Æ‚È‚Á‚Ä‚¢‚Ü‚·B<br>
-              ‚²•ÔM‚¢‚½‚¾‚¢‚Ä‚à‚¨“š‚¦‚·‚é‚±‚Æ‚ª‚Å‚«‚Ü‚¹‚ñB<br>
-              &#9734;ƒ[ƒ‹‚Å‚Ì‚¨–â‚¢‡‚í‚¹‚Í‚±‚¿‚ç‚©‚ç <a href="mailto:fujingaho@ringbell.co.jp">fujingaho@ringbell.co.jp</a><br>
-              &#9734;‚¨“d˜b‚Å‚Ì‚¨–â‚¢‡‚í‚¹FƒtƒŠ[ƒR[ƒ‹ 0120-982-424<br>
-              ó•tF10F00`17F00q“y“új‚àó‚¯•t‚¯‚Ä‚¨‚è‚Ü‚·r</p>
-              <p>
-                 <a href="https://fujingaho.ringbell.co.jp/?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b39">•wl‰æ•ñ‚Ì‚¨æ‚èŠñ‚¹</a><br>
+                 <a href="https://fujingaho.ringbell.co.jp/?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b39">ï¿½wï¿½lï¿½ï¿½ï¿½Ì‚ï¿½ï¿½ï¿½ï¿½ï¿½</a><br>
               </p>
             </td>
             <td><img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/spacer.gif" width="20" height="1" alt=""></td>
@@ -495,7 +473,7 @@ function renderPreviewFooter() {
             <td colspan="3"><img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/spacer.gif" width="1" height="30" alt=""></td>
           </tr>
         </table>
-                        <!-- £ƒtƒbƒ^[ƒGƒŠƒA@ª‚±‚±‚Ü‚Å -->`
+                        <!-- ï¿½ï¿½ï¿½tï¿½bï¿½^ï¿½[ï¿½Gï¿½ï¿½ï¿½Aï¿½@ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü‚ï¿½ -->`
     renderingPreviewPage = str;
 }
 
@@ -504,8 +482,7 @@ function renderPreviewLayoutA(num) {
     console.log("LayoutA");
 
     let str =
-        `<!-- ¥¤•iƒpƒ^[ƒ“A --> 
-        <table width="630" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"> 
+        `<table width="630" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF"> 
         <tr> 
         <td align="center"> 
         <table width="460" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="font-size: 20px;"> 
@@ -542,15 +519,14 @@ function renderPreviewLayoutA(num) {
         </tr> 
         <tr align="center"> 
         <td><a href="https://fujingaho.ringbell.co.jp/shop/g/g053F-126/?utm_source=%E5%A9%A6%E4%BA%BA%E7%94%BB%E5%A0%B1&utm_medium=200513%E5%A9%A6%E4%BA%BA%E4%BC%9A%E5%93%A1%E3%83%A1%E3%83%AB%E3%83%9E%E3%82%AC_b06"> 
-        <img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/btn-order01.png" width="300" alt="w“ü‚Í‚±‚¿‚ç"/></a></td> 
+        <img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/btn-order01.png" width="300" alt=""/></a></td> 
         </tr> 
         </table></td> 
         </tr> 
         <tr> 
         <td><img src="https://d1v92rgvep0bm6.cloudfront.net/mailmag/img/spacer.gif" width="1" height="30" alt=""/></td> 
         </tr> 
-        </table> 
-        <!-- /£¤•iƒpƒ^[ƒ“A --> `;
+        </table> `;
 
     renderingPreviewPage = str;
 
