@@ -1,2 +1,0 @@
-<?PHP
-unlink('preview.html');
